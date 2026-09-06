@@ -47,5 +47,12 @@ public class CheckoutTest {
 
     }
 
+    @Test
+    void nullEntry(){
+        Checkout myCheckout = new Checkout();
+        int total = myCheckout.calculateTotal(Arrays.asList("   ", "", " ", "", null));
+        assertEquals(0, total);
+
+    }
 
 }

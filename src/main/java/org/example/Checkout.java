@@ -8,7 +8,9 @@ public class Checkout {
 
         for (String item : products) {
             try {
-
+                if(item == null){
+                    continue;
+                }
                 Product product = Product.valueOf(item.toUpperCase());
                 total += product.getPrice();
 
