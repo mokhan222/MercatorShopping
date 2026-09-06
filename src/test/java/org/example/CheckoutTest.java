@@ -35,7 +35,8 @@ public class CheckoutTest {
     void shouldReturnSumOfMultipleItems() {
         Checkout myCheckout = new Checkout();
         int total = myCheckout.calculateTotal(List.of("Apple", "Apple", "Orange"));
-        assertEquals(145, total);
+        assertEquals(85, total);
+        /* test needs to be altered for apple discount */
 
     }
 
@@ -61,4 +62,15 @@ public class CheckoutTest {
         int total = myCheckout.calculateTotal(List.of("   ", "", " ", ""));
         assertEquals(0, total);
     }
+
+
+    @Test
+    void shouldApplyBuyOneGetOneFreeOnApple(){
+        Checkout myCheckout = new Checkout();
+        int total = myCheckout.calculateTotal(List.of("apple", "apple"));
+        assertEquals(60, total);
+
+
+    }
+
 }
