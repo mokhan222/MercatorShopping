@@ -4,16 +4,16 @@ import java.util.List;
 
 public class Checkout {
     public int calculateTotal(List<String> products) {
-
         int total = 0;
-        for (String item : products) {
-            if (item.equalsIgnoreCase("orange")) {
-                total += 25;
-            }
-            ;
-            if (item.equalsIgnoreCase("apple")) {
-                total += 60;
 
+        for (String item : products) {
+            try {
+
+                Product product = Product.valueOf(item.toUpperCase());
+                total += product.getPrice();
+
+            } catch (IllegalArgumentException e) {
+                System.out.println(item + " not available");
             }
         }
         return total;

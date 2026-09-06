@@ -2,6 +2,7 @@ package org.example;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -35,6 +36,14 @@ public class CheckoutTest {
         Checkout myCheckout = new Checkout();
         int total = myCheckout.calculateTotal(List.of("Apple", "Apple", "Orange"));
         assertEquals(145, total);
+
+    }
+
+    @Test
+    void incorrectPProduct() {
+        Checkout myCheckout = new Checkout();
+        int total = myCheckout.calculateTotal(List.of("banana", "mango", "hello"));
+        assertEquals(0, total);
 
     }
 
