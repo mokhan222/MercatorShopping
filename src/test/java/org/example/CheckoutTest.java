@@ -49,7 +49,7 @@ public class CheckoutTest {
     }
 
     @Test
-    void nullEntry(){
+    void nullEntry() {
         Checkout myCheckout = new Checkout();
         int total = myCheckout.calculateTotal(Arrays.asList("   ", "", " ", "", null));
         assertEquals(0, total);
@@ -65,12 +65,19 @@ public class CheckoutTest {
 
 
     @Test
-    void shouldApplyBuyOneGetOneFreeOnApple(){
+    void shouldApplyBuyOneGetOneFreeOnApple() {
         Checkout myCheckout = new Checkout();
         int total = myCheckout.calculateTotal(List.of("apple", "apple"));
         assertEquals(60, total);
 
 
+    }
+
+    @Test
+    void shouldApplyBuyTwoGetOneFreeOnOrange() {
+        Checkout myCheckout = new Checkout();
+        int total = myCheckout.calculateTotal(List.of("orange", "orange", "orange"));
+        assertEquals(50, total);
     }
 
 }
