@@ -8,7 +8,7 @@ public class Checkout {
 
         for (String item : products) {
             try {
-                if(item == null){
+                if(item == null || item.isBlank()){
                     continue;
                 }
                 Product product = Product.valueOf(item.toUpperCase());

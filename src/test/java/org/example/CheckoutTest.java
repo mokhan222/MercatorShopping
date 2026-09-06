@@ -55,4 +55,10 @@ public class CheckoutTest {
 
     }
 
+    @Test
+    void emptyEntry() {
+        Checkout myCheckout = new Checkout();
+        int total = myCheckout.calculateTotal(List.of("   ", "", " ", ""));
+        assertEquals(0, total);
+    }
 }
